@@ -1,11 +1,8 @@
-enable-magisk-update = true # set this to false if you do not want to receive updates for the module in magisk app
-parallel-jobs = 1                               # amount of cores to use for parallel patching, if not set $(nproc) is used
-compression-level = 9                           # module zip compression level
+enable-magisk-update = true
+parallel-jobs = 1
+compression-level = 9
 
-rv-brand = "ReVanced Xtended"                   # rebrand from 'ReVanced' to something different.
-
-patches-version = "latest                       # 'latest', 'dev', or a version number. default: "latest"
-cli-version = "latest"                          # 'latest', 'dev', or a version number. default: "latest"
+rv-brand = "ReVanced Xtended"
 
 # add 'enabled = false' for not patching a specific app or remove it from the config
 # see https://github.com/j-hc/revanced-magisk-module/blob/main/CONFIG.md for more detailed explanations
