@@ -1,10 +1,14 @@
 enable-magisk-update = true # set this to false if you do not want to receive updates for the module in magisk app
-parallel-jobs = 1
+parallel-jobs = 1                               # amount of cores to use for parallel patching, if not set $(nproc) is used
+compression-level = 9                           # module zip compression level
+
+rv-brand = "ReVanced Xtended"                   # rebrand from 'ReVanced' to something different.
+
+patches-version = "latest                       # 'latest', 'dev', or a version number. default: "latest"
+cli-version = "latest"                          # 'latest', 'dev', or a version number. default: "latest"
 
 # add 'enabled = false' for not patching a specific app or remove it from the config
 # see https://github.com/j-hc/revanced-magisk-module/blob/main/CONFIG.md for more detailed explanations
-
-# you can use rvmm-config-gen to generate a config
 
 [YouTube]
 build-mode = "both"
@@ -20,14 +24,22 @@ rv-brand = "Morphe"
 build-mode = "both"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/youtube"
 uptodown-dlurl = "https://youtube.en.uptodown.com/android"
-archive-dlurl = "https://archive.org/download/jhc-apks/apks/com.google.android.youtube"
+module-prop-name = "yt-rvx"
+patches-source = "inotia00/revanced-patches"
+cli-source = "inotia00/revanced-cli"
 
 [Music]
-build-mode = "both"
-arch = "both"
-apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/youtube-music"
-uptodown-dlurl = "https://youtube-music.en.uptodown.com/android"
-archive-dlurl = "https://archive.org/download/jhc-apks/apks/com.google.android.apps.youtube.music"
+arch = "arm64-v8a"
+build-mode = "module"
+app-name = "YouTube-Music"
+excluded-patches = "'Custom branding Icon for YouTube Music' 'Custom branding name for YouTube Music' 'Dark theme'"
+included-patches = ""
+patcher-args = " -e 'GmsCore support' -OpackageNameYouTubeMusic='com.rvx.android.youtube.music'"
+version = "auto"
+apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/youtube-music/"
+module-prop-name = "ytm-rvx"
+patches-source = "inotia00/revanced-patches"
+cli-source = "inotia00/revanced-cli"
 
 [Music-Morphe]
 enabled = false
