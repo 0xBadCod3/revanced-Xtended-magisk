@@ -143,7 +143,6 @@ cli-source = "MorpheApp/morphe-cli"
 rv-brand = "Morphe"
 
 [Music-Morphe]
-enabled = false
 app-name = "Music"
 patches-source = "MorpheApp/morphe-patches"
 cli-source = "MorpheApp/morphe-cli"
