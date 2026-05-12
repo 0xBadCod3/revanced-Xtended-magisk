@@ -9,7 +9,7 @@ compression-level = 9
 
 ## ———————— Custom Configurations ————————————————————————
 # Revanced patches
-[YouTube]
+[YouTube-Revanced]
 enabled = false
 app-name = "YouTube"
 build-mode = "both"
@@ -21,7 +21,7 @@ uptodown-dlurl = "https://youtube.en.uptodown.com/android"
 archive-dlurl = "https://archive.org/download/jhc-apks/apks/com.google.android.youtube"
 rv-brand = "Revanced"
 
-[YT-Music]
+[YT-Music-Revanced]
 enabled = false
 app-name = "YouTube-Music"
 build-mode = "both"
@@ -105,7 +105,7 @@ rv-brand = "RVX Anddea"
 
 
 # Morphe patches
-[YouTube-Morphe]
+[YouTube-Mrphe]
 app-name = "YouTube"
 arch = "arm64-v8a"
 build-mode = "module"
@@ -136,7 +136,7 @@ archive-dlurl = "https://archive.org/download/jhc-apks/apks/com.google.android.a
 module-prop-name = "ytm-morphe"
 patches-source = "MorpheApp/morphe-patches"
 cli-source = "MorpheApp/morphe-cli"
-rv-brand = "Morphe" 
+rv-brand = "Morphe"
 # ————————————————————————————————————————————————————————
 
 [YouTube]
