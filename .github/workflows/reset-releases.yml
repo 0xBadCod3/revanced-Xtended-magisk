@@ -1,0 +1,56 @@
+name: Reset Releases
+on:
+  workflow_dispatch:
+
+jobs:
+  reset:
+    runs-on: ubuntu-latest
+    permissions: write-all
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Delete all releases and tags
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git fetch --tags
+          # Delete releases and their associated tags
+          releases=$(gh release list --limit 1000 | cut -f 1)
+          if [ -n "$releases" ]; then
+            echo "Deleting releases and associated tags..."
+            for release in $releases; do
+              gh release delete "$release" -y --cleanup-tag
+            done
+          else
+            echo "No releases found."
+          fi
+
+          # Delete any remaining tags that might not be attached to releases
+          tags=$(git tag -l)
+          if [ -n "$tags" ]; then
+            echo "Deleting remaining tags..."
+            for tag in $tags; do
+              git push origin --delete "$tag" || true
+            done
+          else
+            echo "No additional tags found."
+          fi
+
+      - name: Delete update branch
+        run: |
+          if git ls-remote --exit-code --heads origin update; then
+            echo "Deleting update branch..."
+            git push origin --delete update
+          else
+            echo "Update branch does not exist."
+          fi
+
+      - name: Trigger CI
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "Triggering CI workflow..."
+          gh workflow run ci.yml
