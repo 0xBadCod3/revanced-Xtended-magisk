@@ -18,11 +18,12 @@ jobs:
         run: |
           git fetch --tags
           # Delete releases and their associated tags
-          releases=$(gh release list --limit 1000 | cut -f 1)
+          releases=$(gh release list --limit 1000 | cut -f 1 || echo "")
           if [ -n "$releases" ]; then
             echo "Deleting releases and associated tags..."
             for release in $releases; do
-              gh release delete "$release" -y --cleanup-tag
+              echo "Deleting release: $release"
+              gh release delete "$release" -y --cleanup-tag || echo "Failed to delete release $release"
             done
           else
             echo "No releases found."
