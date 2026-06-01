@@ -1,6 +1,3 @@
-> [!NOTE]
-> This repository is a specialized template of [j-hc/revanced-magisk-module](https://github.com/j-hc/revanced-magisk-module), featuring a customized build process and specific enhancements.
-
 # ReVanced Magisk Module
 [![Telegram](https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/rvc_magisk)
 [![CI](https://github.com/j-hc/revanced-magisk-module/actions/workflows/ci.yml/badge.svg?event=schedule)](https://github.com/j-hc/revanced-magisk-module/actions/workflows/ci.yml)
