@@ -1,18 +1,153 @@
 enable-module-update = true # set this to false if you do not want to receive updates for the module
 parallel-jobs = 1
+compression-level = 9
 
 # add 'enabled = false' for not patching a specific app or remove it from the config
 # see https://github.com/j-hc/revanced-magisk-module/blob/main/CONFIG.md for more detailed explanations
 
 # you can use rvmm-config-gen to generate a config
 
+## ———————— Custom Configurations ————————————————————————
+# Revanced patches
+[YouTube-Revanced]
+enabled = false
+app-name = "YouTube"
+build-mode = "both"
+excluded-patches = ""
+included-patches = ""
+version = "auto"
+apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/youtube"
+uptodown-dlurl = "https://youtube.en.uptodown.com/android"
+archive-dlurl = "https://archive.org/download/jhc-apks/apks/com.google.android.youtube"
+rv-brand = "Revanced"
+
+[YT-Music-Revanced]
+enabled = false
+app-name = "YouTube-Music"
+build-mode = "both"
+arch = "both"
+apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/youtube-music"
+uptodown-dlurl = "https://youtube-music.en.uptodown.com/android"
+archive-dlurl = "https://archive.org/download/jhc-apks/apks/com.google.android.apps.youtube.music"
+rv-brand = "Revanced"
+
+
+# inotia00 patches
+[YouTube-Extended]
+enabled = false
+app-name = "YouTube"
+build-mode = "module"
+arch = "arm64-v8a"
+excluded-patches = "'Custom branding icon for YouTube' 'Translations for YouTube' 'Custom branding name for YouTube' 'Theme' 'MaterialYou' 'Enable gradient loading screen' 'Force hide player buttons background'"
+included-patches = "'Visual preferences icons'"
+patcher-args = " -e 'GmsCore support' -OpackageNameYouTube='com.rvx.android.youtube'"
+version = "auto"
+exclusive-patches = false
+apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/youtube/"
+uptodown-dlurl = "https://youtube.en.uptodown.com/android"
+archive-dlurl = "https://archive.org/download/jhc-apks/apks/com.google.android.youtube"
+module-prop-name = "yt-rvx"
+patches-source = "inotia00/revanced-patches"
+cli-source = "inotia00/revanced-cli"
+rv-brand = "RVX"
+
+[YT-Music-Extended]
+enabled = false
+app-name = "YouTube-Music"
+arch = "arm64-v8a"
+build-mode = "module"
+excluded-patches = "'Custom branding icon for YouTube Music' 'Custom branding name for YouTube Music' 'Dark theme'"
+included-patches = ""
+patcher-args = " -e 'GmsCore support' -OpackageNameYouTubeMusic='com.rvx.android.youtube.music'"
+version = "auto"
+apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/youtube-music/"
+uptodown-dlurl = "https://youtube-music.en.uptodown.com/android"
+archive-dlurl = "https://archive.org/download/jhc-apks/apks/com.google.android.apps.youtube.music"
+module-prop-name = "ytm-rvx"
+patches-source = "inotia00/revanced-patches"
+cli-source = "inotia00/revanced-cli"
+rv-brand = "RVX"
+
+
+# anddea patches
+[YouTube-Extended-Anddea]
+app-name = "YouTube"
+arch = "arm64-v8a"
+build-mode = "module"
+excluded-patches = "'Custom branding icon for YouTube' 'Translations for YouTube' 'Custom branding name for YouTube' 'Theme' 'MaterialYou' 'Enable gradient loading screen' 'Force hide player buttons background'"
+included-patches = "'Visual preferences icons'"
+patcher-args = " -e 'GmsCore support' -OpackageNameYouTube='com.rvxanddea.android.youtube'"
+version = "20.23.37"
+exclusive-patches = false
+apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/youtube/"
+uptodown-dlurl = "https://youtube.en.uptodown.com/android"
+archive-dlurl = "https://archive.org/download/jhc-apks/apks/com.google.android.youtube"
+module-prop-name = "yt-rvx-anddea"
+patches-source = "anddea/revanced-patches"
+cli-source = "MorpheApp/morphe-cli"
+rv-brand = "RVX Anddea"
+
+[YT-Music-Extended-Anddea]
+app-name = "YouTube-Music"
+arch = "arm64-v8a"
+build-mode = "module"
+excluded-patches = "'Custom branding icon for YouTube Music' 'Custom branding name for YouTube Music' 'Dark theme'"
+included-patches = ""
+patcher-args = " -e 'GmsCore support' -OpackageNameYouTubeMusic='com.rvxanddea.android.youtube.music'"
+version = "auto"
+apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/youtube-music/"
+uptodown-dlurl = "https://youtube-music.en.uptodown.com/android"
+archive-dlurl = "https://archive.org/download/jhc-apks/apks/com.google.android.apps.youtube.music"
+module-prop-name = "ytm-rvx-anddea"
+patches-source = "anddea/revanced-patches"
+cli-source = "MorpheApp/morphe-cli"
+rv-brand = "RVX Anddea"
+
+
+# Morphe patches
+[YouTube-Mrphe]
+app-name = "YouTube"
+arch = "arm64-v8a"
+build-mode = "module"
+excluded-patches = "'Custom branding icon for YouTube' 'Translations for YouTube' 'Custom branding name for YouTube' 'Theme' 'MaterialYou' 'Enable gradient loading screen' 'Force hide player buttons background'"
+included-patches = "'Visual preferences icons'"
+patcher-args = " -e 'GmsCore support' -OpackageNameYouTube='com.morphe.android.youtube'"
+version = "auto"
+exclusive-patches = false
+apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/youtube/"
+uptodown-dlurl = "https://youtube.en.uptodown.com/android"
+archive-dlurl = "https://archive.org/download/jhc-apks/apks/com.google.android.youtube"
+module-prop-name = "yt-morphe"
+patches-source = "MorpheApp/morphe-patches"
+cli-source = "MorpheApp/morphe-cli"
+rv-brand = "Morphe"
+
+[YT-Music-Morphe]
+app-name = "YouTube-Music"
+arch = "arm64-v8a"
+build-mode = "module"
+excluded-patches = "'Custom branding icon for YouTube Music' 'Custom branding name for YouTube Music' 'Dark theme'"
+included-patches = ""
+patcher-args = " -e 'GmsCore support' -OpackageNameYouTubeMusic='com.morphe.android.youtube.music'"
+version = "auto"
+apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/youtube-music/"
+uptodown-dlurl = "https://youtube-music.en.uptodown.com/android"
+archive-dlurl = "https://archive.org/download/jhc-apks/apks/com.google.android.apps.youtube.music"
+module-prop-name = "ytm-morphe"
+patches-source = "MorpheApp/morphe-patches"
+cli-source = "MorpheApp/morphe-cli"
+rv-brand = "Morphe"
+# ————————————————————————————————————————————————————————
+
 [YouTube]
+enabled = false
 build-mode = "both"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/youtube"
 uptodown-dlurl = "https://youtube.en.uptodown.com/android"
 archive-dlurl = "https://archive.org/download/jhc-apks/apks/com.google.android.youtube"
 
 [YouTube-Morphe]
+enabled = false
 app-name = "YouTube"
 patches-source = "MorpheApp/morphe-patches"
 cli-source = "MorpheApp/morphe-cli"
@@ -23,6 +158,7 @@ uptodown-dlurl = "https://youtube.en.uptodown.com/android"
 archive-dlurl = "https://archive.org/download/jhc-apks/apks/com.google.android.youtube"
 
 [Music]
+enabled = false
 build-mode = "both"
 arch = "both"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/youtube-music"
@@ -30,6 +166,7 @@ uptodown-dlurl = "https://youtube-music.en.uptodown.com/android"
 archive-dlurl = "https://archive.org/download/jhc-apks/apks/com.google.android.apps.youtube.music"
 
 [Music-Morphe]
+enabled = false
 app-name = "Music"
 patches-source = "MorpheApp/morphe-patches"
 cli-source = "MorpheApp/morphe-cli"
@@ -41,6 +178,7 @@ uptodown-dlurl = "https://youtube-music.en.uptodown.com/android"
 archive-dlurl = "https://archive.org/download/jhc-apks/apks/com.google.android.apps.youtube.music"
 
 [Reddit-Morphe]
+enabled = false
 app-name = "Reddit"
 rv-brand = "Morphe"
 build-mode = "both"
@@ -52,6 +190,7 @@ uptodown-dlurl = "https://reddit-official-app.en.uptodown.com/android"
 dpi = "120-640dpi"
 
 [Twitter]
+enabled = false
 patches-source = "crimera/piko"
 cli-source = "MorpheApp/morphe-cli"
 rv-brand = "Piko"
@@ -62,6 +201,7 @@ version = "11.81.0-release.0"
 include-stock = "split"
 
 [GooglePhotos]
+enabled = false
 build-mode = "both"
 arch = "both"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/photos/"
